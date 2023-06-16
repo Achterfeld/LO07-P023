@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-success fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="router1.php?action=DoctolibAccueil">ACHTERFELD</a>
+        <a class="navbar-brand" href="router1.php?action=DoctolibAccueil">ACHTERFELD RAYNAL</a>
         <a class="navbar-brand"> |
             <?php
             if(session_status() !== PHP_SESSION_ACTIVE) session_start();
