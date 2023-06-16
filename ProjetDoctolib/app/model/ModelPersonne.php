@@ -137,21 +137,29 @@ class ModelPersonne
         }
     }
 
-    public static function getOneByLoginPassword($login, $password)
+    public static function getOneByLogin($login)
     {
         try {
             $database = Model::getInstance();
-            $query = "select * from personne where login = :login AND password = :password";
+            $query = "select * from personne where login = :login ";
             $statement = $database->prepare($query);
             $statement->execute([
-                'login' => $login,
-                'password' => $password
+                'login' => $login
             ]);
-            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
-            foreach ($results as $personne){
-                $_SESSION["user"] = $personne;
-            }
-            return $results;
+            $statement->debugDumpParams();
+            $PDOresult = $statement->fetch(PDO::FETCH_LAZY);
+            $result = new ModelPersonne($PDOresult["id"],
+                                        $PDOresult["nom"],
+                                        $PDOresult["prenom"],
+                                        $PDOresult["adresse"],
+                                        $PDOresult["login"],
+                                        $PDOresult["password"],
+                                        $PDOresult["statut"],
+                                        $PDOresult["specialite_id"],);
+
+            $_SESSION["user"] = $result;
+
+            return $result;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;

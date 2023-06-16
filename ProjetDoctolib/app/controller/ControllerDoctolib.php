@@ -55,19 +55,20 @@ class ControllerDoctolib
 
     public static function doctolibVerifConnexion()
     {
+
+
         $login = $_GET['login'];
         $password = $_GET['password'];
-        $results = ModelPersonne::getOneByLoginPassword($login, password_hash($password, PASSWORD_DEFAULT));
-        print_r(password_hash($password, PASSWORD_DEFAULT));
-        die;
-        if (!empty($results)) {
+        $result = ModelPersonne::getOneByLogin($login);
+
+        if (!empty($result)) {
             if (session_status() !== PHP_SESSION_ACTIVE) {
                 session_start();
             }
-            if (password_verify($password, $results[0]->getPassword()))
+            if (password_verify($password, $result->getPassword()))
             {
               /* The password is correct. */
-              $_SESSION["login"] = $results[0];
+              $_SESSION["login"] = $result;
               self::doctolibAccueil();
             }
 

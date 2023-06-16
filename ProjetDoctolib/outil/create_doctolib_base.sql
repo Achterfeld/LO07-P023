@@ -122,3 +122,5 @@ INSERT INTO `rendezvous` (`id`, `patient_id`, `praticien_id`, `rdv_date`) VALUES
                                                                               (41, 204, 90, '2023-06-01 à 15h00'),
                                                                               (42, 0, 90, '2023-06-01 à 16h00'),
                                                                               (43, 0, 90, '2023-06-01 à 17h00');
+
+ALTER TABLE personne Modify column password varchar(255) NOT NULL;
