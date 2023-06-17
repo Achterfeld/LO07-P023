@@ -104,7 +104,7 @@ class ModelRendezvous {
         }
     }
 
-    public static function getRdvDispoForPraticien($praticien_id) {
+    public static function getDispoRdvPraticien($praticien_id) {
         try {
             $database = Model::getInstance();
             $query = "SELECT * FROM rendezvous WHERE praticien_id = :praticien_id AND patient_id = 0";
@@ -118,7 +118,7 @@ class ModelRendezvous {
         }
     }
 
-    public static function getAllRdvPraticien($praticien_id) {
+    public static function getToutRdvPraticien($praticien_id) {
         try {
             $database = Model::getInstance();
             $query = "SELECT * FROM rendezvous WHERE praticien_id = :praticien_id";
@@ -132,7 +132,7 @@ class ModelRendezvous {
         }
     }
 
-    public static function getListRdv($praticien_id) {
+    public static function getRdvListe($praticien_id) {
         try {
             $database = Model::getInstance();
             $query = "SELECT nom, prenom, rdv_date 

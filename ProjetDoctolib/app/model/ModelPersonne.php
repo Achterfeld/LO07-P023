@@ -39,7 +39,7 @@ class ModelPersonne
 
     // Getters et setters pour chaque propriété
 
-    public static function getNomStatut($statut)
+    public static function getTypestatut($statut)
     {
         switch ($statut) {
             case self::ADMINISTRATEUR:
@@ -67,7 +67,7 @@ class ModelPersonne
         }
     }
 
-    public static function getAllPersonneType($type)
+    public static function getTypePersonne($type)
     {
         try {
             $database = Model::getInstance();
@@ -119,7 +119,7 @@ class ModelPersonne
         }
     }
 
-    public static function getNbPraticienPerPatient()
+    public static function getNbPraticienparPatient()
     {
         try {
             $database = Model::getInstance();
@@ -137,7 +137,7 @@ class ModelPersonne
         }
     }
 
-    public static function getOneByLogin($login)
+    public static function getspeLogin($login)
     {
         try {
             $database = Model::getInstance();
@@ -146,7 +146,7 @@ class ModelPersonne
             $statement->execute([
                 'login' => $login
             ]);
-            $statement->debugDumpParams();
+            $statement->debugparams();
             $PDOresult = $statement->fetch(PDO::FETCH_LAZY);
             $result = new ModelPersonne($PDOresult["id"],
                                         $PDOresult["nom"],

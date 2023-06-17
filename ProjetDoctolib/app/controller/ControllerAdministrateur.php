@@ -26,7 +26,7 @@ class ControllerAdministrateur
         unset($results[0]);
         
         include 'config.php';
-        $vue = $root . '/app/view/admin/viewPraticienPerPatient.php';
+        $vue = $root . '/app/view/admin/viewPraticienparPatient.php';
         
         if (DEBUG) {
             echo ("ControllerPraticien : praticienReadAll : vue = $vue");
@@ -35,7 +35,7 @@ class ControllerAdministrateur
         require($vue);
     }
 
-    public static function infosAdmin()
+    public static function AdminInfos()
     {
         $resultsSpecialite = ModelSpecialite::getAll();
         $resultsPraticien = ModelPersonne::getTypePersonne(1);
@@ -47,7 +47,7 @@ class ControllerAdministrateur
         $vue = $root . '/app/view/admin/viewInfos.php';
         
         if (DEBUG) {
-            echo ("ControllerAdmin : infosAdmin : vue = $vue");
+            echo ("ControllerAdmin : AdminInfos : vue = $vue");
         }
         
         require($vue);

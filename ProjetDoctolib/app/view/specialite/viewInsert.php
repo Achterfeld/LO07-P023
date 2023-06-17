@@ -13,7 +13,7 @@ require($root . '/app/view/fragment/fragmentDoctolibHeader.html');
 
     <form role="form" method="get" action="router1.php">
       <div class="form-group">
-        <input type="hidden" name="action" value="specialiteCreated">
+        <input type="hidden" name="action" value="creationSpecialite">
         <label class="w-25" for="label">Nom de la spécialité : </label>
         <input type="text" name="label" size="75" value="Spécialité sans nom"><br/>
       </div>

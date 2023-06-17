@@ -16,25 +16,25 @@ $action = htmlspecialchars($param["action"]);
 
 // Liste des méthodes autorisées
 switch ($action) {
-    case "specialiteReadAll":
-    case "specialiteReadOne":
-    case "specialiteReadId":
-    case "specialiteCreate":
-    case "specialiteCreated":
+    case "ConsultSpecialite":
+    case "RecupSpecialite":
+    case "IdSpecialite":
+    case "CreerSpecialite":
+    case "creationSpecialite":
         ControllerSpecialite::$action();
         break;
 
-    case "patientInfo":
-    case "patientRdv":
-    case "takeRdv":
-    case "rdvDispo":
-    case "updateRdv":
+    case "Informationpatient":
+    case "Rdvpatient":
+    case "prendrerdv":
+    case "DispoRdv":
+    case "ActuRdv":
         ControllerPatient::$action();
         break;
 
     case "getDispo":
-    case "addDispo":
-    case "dispoAdded":
+    case "AjoutDispo":
+    case "AjtDispo":
     case "getListRdv":
     case "getMesPatients":
         ControllerPraticien::$action();
@@ -46,19 +46,19 @@ switch ($action) {
         ControllerAdministrateur::$action();
         break;
 
-    case "doctolibConnexion":
-    case "doctolibVerifConnexion":
-    case "doctolibDeconnexion":
-    case "personneCreate":
-    case "personneCreated":
-    case "doctolibInnovation":
-    case "doctolibAmelioration":
+    case "ConnexionDocto":
+    case "verifCoDoctolib":
+    case "DeconnexionDocto":
+    case "Creerpersonne":
+    case "creationpersonne":
+    case "InnovationDocto":
+    case "AmelioDocto":
         ControllerDoctolib::$action();
         break;
 
     // Tâche par défaut
     default:
-        $action = "doctolibAccueil";
+        $action = "AccueilDocto";
         ControllerDoctolib::$action();
 }
 ?>

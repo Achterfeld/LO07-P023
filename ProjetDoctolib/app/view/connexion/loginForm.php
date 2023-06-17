@@ -15,7 +15,7 @@ require($root . '/app/view/fragment/fragmentDoctolibHeader.html');
         form_begin('form-horizontal', 'get', 'router1.php');
         form_input_text('Login', 'login', '50', '', '', 'required');
         form_input_text('Password', 'password', '50', '', 'password', 'required');
-        form_input_text('', 'action', '50', 'doctolibVerifConnexion', 'hidden');
+        form_input_text('', 'action', '50', 'verifCoDoctolib', 'hidden');
         form_input_submit('Envoyer');
         form_input_reset('Réinitialiser');
 

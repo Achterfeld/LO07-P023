@@ -41,7 +41,7 @@ require($root . '/app/view/fragment/fragmentDoctolibHeader.html');
         echo "</select>";
         echo "</div>";
 
-        form_input_text('', 'action', '50', 'personneCreated', 'hidden');
+        form_input_text('', 'action', '50', 'creationpersonne', 'hidden');
         form_input_submit('Envoyer');
         form_input_reset('Réinitialiser');
         ?>
