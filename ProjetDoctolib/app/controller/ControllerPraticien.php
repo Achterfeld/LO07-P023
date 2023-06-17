@@ -40,7 +40,7 @@ class ControllerPraticien
         
         require($vue);
     }
-
+// Disponibilités ajoutées 
     public static function AjtDispo()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {

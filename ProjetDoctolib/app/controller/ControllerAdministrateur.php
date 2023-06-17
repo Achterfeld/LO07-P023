@@ -11,7 +11,7 @@ class ControllerAdministrateur
         $results = ModelPersonne::getPraticienSpecialite();
 
         include 'config.php';
-        $vue = $root . '/app/view/admin/viewAllPraticien.php';
+        $vue = $root . '/app/view/admin/viewToutPraticien.php';
         
         if (DEBUG) {
             echo ("ControllerPraticien : praticienReadAll : vue = $vue");

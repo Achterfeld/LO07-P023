@@ -21,7 +21,7 @@ require ($root . '/app/view/fragment/fragmentDoctolibHeader.html');
         </thead>
         <tbody>
         <?php
-        // La liste des spécialités est dans une variable $results
+        
         foreach ($results as $element) {
             printf("<tr><td>%s</td><td>%s</td></tr>",
                 $element->getId(),

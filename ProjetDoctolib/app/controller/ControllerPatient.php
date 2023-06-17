@@ -79,7 +79,7 @@ class ControllerPatient
         
         require($vue);
     }
-
+// Actualisation des rendez-vous
     public static function ActuRdv()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {

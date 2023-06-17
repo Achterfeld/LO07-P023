@@ -52,7 +52,7 @@ class ControllerDoctolib
         
         require($vue);
     }
-
+// Verification de la connexion 
     public static function verifCoDoctolib()
     {
 
@@ -86,7 +86,7 @@ class ControllerDoctolib
         $_SESSION["login"] = null;
         self::AccueilDocto();
     }
-
+// Creation du statut 
     public static function Creerpersonne()
     {
         $listStatut = array(
@@ -101,7 +101,7 @@ class ControllerDoctolib
         $vue = $root . '/app/view/connexion/viewInsert.php';
         require($vue);
     }
-
+// Les infos de la personne crées
     public static function creationpersonne()
     {
         $results = ModelPersonne::insert(

@@ -95,14 +95,14 @@ class ModelSpecialite {
         try {
             $database = Model::getInstance();
 
-            // Recherche de la valeur de la clé = max(id) + 1
+            // Encore max id+1
             $query = "SELECT max(id) FROM specialite";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $id = $tuple['0'];
             $id++;
 
-            // Ajout d'un nouveau tuple
+            // Ajout tuple
             $query = "INSERT INTO specialite VALUES (:id, :label)";
             $statement = $database->prepare($query);
             $statement->execute([

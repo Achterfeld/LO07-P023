@@ -23,7 +23,7 @@ require ($root . '/app/view/fragment/fragmentDoctolibHeader.html');
         </thead>
         <tbody>
         <?php
-        // La liste des spécialités est dans une variable $results
+        // $results = liste des Spé
         foreach ($results as $element) {
             $adresse_cible = $element["adresse"];
             printf("<tr><td>%s</td><td>%s</td><td>%s</td><td><a class='btn btn-outline-success' target='_blank' href='https://www.google.com/maps/dir/?api=1&origin=$adresse_patient&destination=$adresse_cible'>Lancer la navigation</a></td></tr>",

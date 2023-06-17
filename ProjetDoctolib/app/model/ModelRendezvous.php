@@ -81,14 +81,14 @@ class ModelRendezvous {
         try {
             $database = Model::getInstance();
 
-            // Recherche de la valeur de la clé = max(id) + 1
+            // max id + 1
             $query = "SELECT MAX(id) FROM rendezvous";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $id = $tuple[0];
             $id++;
 
-            // Ajout d'un nouveau tuple
+            // Ajout tuple
             $query = "INSERT INTO rendezvous VALUES (:id, 0, :praticien_id, :rdv_date)";
             $statement = $database->prepare($query);
             $statement->execute([
@@ -168,7 +168,7 @@ class ModelRendezvous {
         try {
             $database = Model::getInstance();
 
-            // Modification du tuple
+            // Modif tuple
             $query = "UPDATE rendezvous SET patient_id = :patient_id WHERE id = :id";
             $statement = $database->prepare($query);
             $statement->execute([

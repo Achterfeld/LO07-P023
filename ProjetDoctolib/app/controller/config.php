@@ -2,7 +2,7 @@
 <!-- ----- debut config -->
 <?php
 
-// Utile pour le débugage car c'est un interrupteur pour les echos et print_r.
+// Pour le debug Utile pour le débugage car c'est un interrupteur pour les echos et print_r.
 if (!defined('DEBUG')) {
     define('DEBUG', FALSE);
 }
