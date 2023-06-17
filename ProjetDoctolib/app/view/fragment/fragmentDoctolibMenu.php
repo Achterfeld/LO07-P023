@@ -35,7 +35,7 @@
                             <li><a class="dropdown-item" href="router1.php?action=specialiteCreate">Insertion d'une spécialité</a></li>
                             <hr/>
                             <li><a class="dropdown-item" href="router1.php?action=praticienReadAll">Liste des praticiens avec leurs spécialités</a></li>
-                            <li><a class="dropdown-item" href="router1.php?action=nbPraticienPerPatient">Nombre de praticiens par patient</a></li>
+                            <li><a class="dropdown-item" href="router1.php?action=nbPraticienparPatient">Nombre de praticiens par patient</a></li>
                             <hr/>
                             <li><a class="dropdown-item" href="router1.php?action=infosAdmin">Infos</a></li>
 

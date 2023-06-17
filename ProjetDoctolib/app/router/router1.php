@@ -41,7 +41,7 @@ switch ($action) {
         break;
 
     case "praticienReadAll":
-    case "nbPraticienPerPatient":
+    case "nbPraticienparPatient":
     case "infosAdmin":
         ControllerAdministrateur::$action();
         break;
