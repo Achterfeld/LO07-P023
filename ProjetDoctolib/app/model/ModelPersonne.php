@@ -77,7 +77,10 @@ class ModelPersonne
                 'statut' => $type
             ]);
             
-            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            $results = $statement->fetchAll(PDO::FETCH_FUNC, function($id, $nom, $prenom, $adresse, $login, $password, $statut, $specialite_id) {
+                return new ModelPersonne($id, $nom, $prenom, $adresse, $login, $password, $statut, $specialite_id);
+            });
+
             return $results;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
@@ -146,7 +149,6 @@ class ModelPersonne
             $statement->execute([
                 'login' => $login
             ]);
-            $statement->debugDumpParams();
             $PDOresult = $statement->fetch(PDO::FETCH_LAZY);
             $result = new ModelPersonne($PDOresult["id"],
                                         $PDOresult["nom"],
