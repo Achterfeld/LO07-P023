@@ -146,7 +146,6 @@ class ModelPersonne
             $statement->execute([
                 'login' => $login
             ]);
-            $statement->debugparams();
             $PDOresult = $statement->fetch(PDO::FETCH_LAZY);
             $result = new ModelPersonne($PDOresult["id"],
                                         $PDOresult["nom"],

@@ -37,7 +37,7 @@
                             <li><a class="dropdown-item" href="router1.php?action=praticienReadAll">Liste des praticiens avec leurs spécialités</a></li>
                             <li><a class="dropdown-item" href="router1.php?action=nbPraticienparPatient">Nombre de praticiens par patient</a></li>
                             <hr/>
-                            <li><a class="dropdown-item" href="router1.php?action=AdminInfos">Infos</a></li>
+                            <li><a class="dropdown-item" href="router1.php?action=infosAdmin">Infos</a></li>
 
                         </ul>
                     </li>

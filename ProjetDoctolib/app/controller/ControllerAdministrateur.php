@@ -35,7 +35,7 @@ class ControllerAdministrateur
         require($vue);
     }
 
-    public static function AdminInfos()
+    public static function infosAdmin()
     {
         $resultsSpecialite = ModelSpecialite::getAll();
         $resultsPraticien = ModelPersonne::getTypePersonne(1);
@@ -47,7 +47,7 @@ class ControllerAdministrateur
         $vue = $root . '/app/view/admin/viewInfos.php';
         
         if (DEBUG) {
-            echo ("ControllerAdmin : AdminInfos : vue = $vue");
+            echo ("ControllerAdmin :  : vue = $vue");
         }
         
         require($vue);
