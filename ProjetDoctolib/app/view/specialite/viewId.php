@@ -13,7 +13,7 @@ require($root . '/app/view/fragment/fragmentDoctolibHeader.html');
 
     <form role="form" method="get" action="router1.php">
       <div class="form-group">
-        <input type="hidden" name="action" value="specialiteReadOne">
+        <input type="hidden" name="action" value="RecupSpecialite">
         <label for="id">id : </label>
         <select class="form-control" id="id" name="id" style="width: 100px">
           <?php

@@ -37,9 +37,9 @@ class ModelPersonne
         $this->specialite_id = $specialite_id;
     }
 
-    // Getters et setters pour chaque propriété
+    //  Paramétrages des différentes fonction et ou propriété
 
-    public static function getNomStatut($statut)
+    public static function getTypestatut($statut)
     {
         switch ($statut) {
             case self::ADMINISTRATEUR:
@@ -67,7 +67,7 @@ class ModelPersonne
         }
     }
 
-    public static function getAllPersonneType($type)
+    public static function getTypePersonne($type)
     {
         try {
             $database = Model::getInstance();
@@ -122,7 +122,7 @@ class ModelPersonne
         }
     }
 
-    public static function getNbPraticienPerPatient()
+    public static function getNbPraticienparPatient()
     {
         try {
             $database = Model::getInstance();
@@ -140,7 +140,7 @@ class ModelPersonne
         }
     }
 
-    public static function getOneByLogin($login)
+    public static function getspeLogin($login)
     {
         try {
             $database = Model::getInstance();
@@ -173,14 +173,14 @@ class ModelPersonne
         try {
             $database = Model::getInstance();
 
-            // Recherche de la valeur de la clé = max(id) + 1
+            // id max + 1
             $query = "SELECT MAX(id) FROM personne";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $id = $tuple[0];
             $id++;
 
-            // Ajout d'un nouveau tuple
+            // Ajout Tuple
             $query = "INSERT INTO personne VALUES (:id, :nom, :prenom, :adresse, :login, :password, :statut, :specialite_id)";
             $statement = $database->prepare($query);
             $statement->execute([

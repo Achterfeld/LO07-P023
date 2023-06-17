@@ -5,61 +5,61 @@ require_once '../model/ModelSpecialite.php';
 
 class ControllerDoctolib
 {
-    public static function doctolibAccueil()
+    public static function AccueilDocto()
     {
         include 'config.php';
-        $vue = $root . '/app/view/viewDoctolibAccueil.php';
+        $vue = $root . '/app/view/viewAccueilDocto.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : DoctolibAccueil : vue = $vue");
+            echo ("ControllerDoctolib : AccueilDocto : vue = $vue");
         }
         
         require($vue);
     }
 
-    public static function doctolibInnovation()
+    public static function InnovationDocto()
     {
         include 'config.php';
         $vue = $root . '/app/view/innovation/viewInnovation.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : doctolibInnovation : vue = $vue");
+            echo ("ControllerDoctolib : InnovationDocto : vue = $vue");
         }
         
         require($vue);
     }
 
-    public static function doctolibAmelioration()
+    public static function AmelioDocto()
     {
         include 'config.php';
         $vue = $root . '/app/view/innovation/viewAmelioration.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : doctolibAmelioration : vue = $vue");
+            echo ("ControllerDoctolib : AmelioDocto : vue = $vue");
         }
         
         require($vue);
     }
 
-    public static function doctolibConnexion()
+    public static function ConnexionDocto()
     {
         include 'config.php';
         $vue = $root . '/app/view/connexion/loginForm.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : DoctolibConnexion : vue = $vue");
+            echo ("ControllerDoctolib : ConnexionDocto : vue = $vue");
         }
         
         require($vue);
     }
-
-    public static function doctolibVerifConnexion()
+// Verification de la connexion 
+    public static function verifCoDoctolib()
     {
 
 
         $login = $_GET['login'];
         $password = $_GET['password'];
-        $result = ModelPersonne::getOneByLogin($login);
+        $result = ModelPersonne::getspeLogin($login);
 
         if (!empty($result)) {
             if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -69,30 +69,30 @@ class ControllerDoctolib
             {
               /* The password is correct. */
               $_SESSION["login"] = $result;
-              self::doctolibAccueil();
+              self::AccueilDocto();
             }
 
         } else {
-            $_GET["erreur"] = "Utilisateur ou mot de passe incorrect";
-            self::doctolibConnexion();
+            $_GET["erreur"] = "Identifiants incorrects veuillez réessayer";
+            self::ConnexionDocto();
         }
     }
 
-    public static function doctolibDeconnexion()
+    public static function DeconnexionDocto()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
         $_SESSION["login"] = null;
-        self::doctolibAccueil();
+        self::AccueilDocto();
     }
-
-    public static function personneCreate()
+// Creation du statut 
+    public static function Creerpersonne()
     {
         $listStatut = array(
-            ModelPersonne::ADMINISTRATEUR => ModelPersonne::getNomStatut(ModelPersonne::ADMINISTRATEUR),
-            ModelPersonne::PRATICIEN => ModelPersonne::getNomStatut(ModelPersonne::PRATICIEN),
-            ModelPersonne::PATIENT => ModelPersonne::getNomStatut(ModelPersonne::PATIENT)
+            ModelPersonne::ADMINISTRATEUR => ModelPersonne::getTypestatut(ModelPersonne::ADMINISTRATEUR),
+            ModelPersonne::PRATICIEN => ModelPersonne::getTypestatut(ModelPersonne::PRATICIEN),
+            ModelPersonne::PATIENT => ModelPersonne::getTypestatut(ModelPersonne::PATIENT)
         );
         
         $listSpecialite = ModelSpecialite::getAll();
@@ -101,8 +101,8 @@ class ControllerDoctolib
         $vue = $root . '/app/view/connexion/viewInsert.php';
         require($vue);
     }
-
-    public static function personneCreated()
+// Les infos de la personne crées
+    public static function creationpersonne()
     {
         $results = ModelPersonne::insert(
             htmlspecialchars($_GET['nom']),

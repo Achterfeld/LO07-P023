@@ -5,7 +5,7 @@ require_once '../model/ModelRendezvous.php';
 
 class ControllerPatient
 {
-    public static function patientInfo()
+    public static function Informationpatient()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
@@ -17,13 +17,13 @@ class ControllerPatient
         $vue = $root . '/app/view/patient/viewInfo.php';
         
         if (DEBUG) {
-            echo ("ControllerPatient : patientInfo : vue = $vue");
+            echo ("ControllerPatient : Informationpatient : vue = $vue");
         }
         
         require($vue);
     }
 
-    public static function patientRdv()
+    public static function Rdvpatient()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
@@ -36,15 +36,15 @@ class ControllerPatient
         $vue = $root . '/app/view/patient/viewRdv.php';
         
         if (DEBUG) {
-            echo ("ControllerPatient : patientRdv : vue = $vue");
+            echo ("ControllerPatient : Rdvpatient : vue = $vue");
         }
         
         require($vue);
     }
 
-    public static function takeRdv()
+    public static function prendrerdv()
     {
-        $resultsPraticien = ModelPersonne::getAllPersonneType(1);
+        $resultsPraticien = ModelPersonne::getTypePersonne(1);
         $listPraticien = array();
         
         foreach ($resultsPraticien as $praticien) {
@@ -55,15 +55,15 @@ class ControllerPatient
         $vue = $root . '/app/view/patient/viewInsertRdv.php';
         
         if (DEBUG) {
-            echo ("ControllerPatient : takeRdv : vue = $vue");
+            echo ("ControllerPatient : prendrerdv : vue = $vue");
         }
         
         require($vue);
     }
 
-    public static function rdvDispo()
+    public static function DispoRdv()
     {
-        $resultsRdv = ModelRendezvous::getRdvDispoForPraticien($_GET['praticien_id']);
+        $resultsRdv = ModelRendezvous::getDispoRdvPraticien($_GET['praticien_id']);
         $listRdv = array();
         
         foreach ($resultsRdv as $rdv) {
@@ -71,16 +71,16 @@ class ControllerPatient
         }
         
         include 'config.php';
-        $vue = $root . '/app/view/patient/viewInsertRdvDispo.php';
+        $vue = $root . '/app/view/patient/viewInsertDispoRdv.php';
         
         if (DEBUG) {
-            echo ("ControllerPatient : rdvDispo : vue = $vue");
+            echo ("ControllerPatient : DispoRdv : vue = $vue");
         }
         
         require($vue);
     }
-
-    public static function updateRdv()
+// Actualisation des rendez-vous
+    public static function ActuRdv()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();

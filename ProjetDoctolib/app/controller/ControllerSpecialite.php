@@ -4,7 +4,7 @@ require_once '../model/ModelSpecialite.php';
 
 class ControllerSpecialite
 {
-    public static function specialiteReadAll()
+    public static function ConsultSpecialite()
     {
         $results = ModelSpecialite::getAll();
 
@@ -18,7 +18,7 @@ class ControllerSpecialite
         require($vue);
     }
 
-    public static function specialiteReadId()
+    public static function IdSpecialite()
     {
         $results = ModelSpecialite::getAllId();
 
@@ -27,7 +27,7 @@ class ControllerSpecialite
         require($vue);
     }
 
-    public static function specialiteReadOne()
+    public static function RecupSpecialite()
     {
         $specialite_id = $_GET['id'];
         $results = ModelSpecialite::getOne($specialite_id);
@@ -37,14 +37,14 @@ class ControllerSpecialite
         require($vue);
     }
 
-    public static function specialiteCreate()
+    public static function CreerSpecialite()
     {
         include 'config.php';
         $vue = $root . '/app/view/specialite/viewInsert.php';
         require($vue);
     }
 
-    public static function specialiteCreated()
+    public static function creationSpecialite()
     {
         $results = ModelSpecialite::insert(htmlspecialchars($_GET['label']));
 

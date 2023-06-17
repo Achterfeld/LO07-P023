@@ -11,20 +11,20 @@ class ControllerPraticien
             session_start();
         }
         
-        $results = ModelRendezvous::getRdvDispoForPraticien($_SESSION["login"]->getId());
+        $results = ModelRendezvous::getDispoRdvPraticien($_SESSION["login"]->getId());
 
         include 'config.php';
         $vue = $root . '/app/view/praticien/viewDispo.php';
         require($vue);
     }
 
-    public static function addDispo()
+    public static function AjoutDispo()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
         
-        $resultRdv = ModelRendezvous::getAllRdvPraticien($_SESSION["login"]->getId());
+        $resultRdv = ModelRendezvous::getToutRdvPraticien($_SESSION["login"]->getId());
         $dateIndispo = array();
         
         foreach ($resultRdv as $rdv) {
@@ -35,13 +35,13 @@ class ControllerPraticien
         $vue = $root . '/app/view/praticien/viewInsertDispo.php';
         
         if (DEBUG) {
-            echo ("ControllerPraticien : addDispo : vue = $vue");
+            echo ("ControllerPraticien : AjoutDispo : vue = $vue");
         }
         
         require($vue);
     }
-
-    public static function dispoAdded()
+// Disponibilités ajoutées 
+    public static function AjtDispo()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
@@ -63,13 +63,13 @@ class ControllerPraticien
         require($vue);
     }
 
-    public static function getListRdv()
+    public static function getRdvListe()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
         
-        $results = ModelRendezvous::getListRdv($_SESSION["login"]->getId());
+        $results = ModelRendezvous::getRdvListe($_SESSION["login"]->getId());
 
         include 'config.php';
         $vue = $root . '/app/view/praticien/viewMesRdv.php';
