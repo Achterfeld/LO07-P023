@@ -71,7 +71,7 @@ class ControllerPatient
         }
         
         include 'config.php';
-        $vue = $root . '/app/view/patient/viewInsertDispoRdv.php';
+        $vue = $root . '/app/view/patient/viewInsertRdvDispo.php';
         
         if (DEBUG) {
             echo ("ControllerPatient : DispoRdv : vue = $vue");

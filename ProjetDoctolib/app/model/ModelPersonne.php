@@ -59,7 +59,9 @@ class ModelPersonne
             $query = "SELECT * FROM personne WHERE id = :id";
             $statement = $database->prepare($query);
             $statement->execute(['id' => $id]);
-            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            $results = $statement->fetchAll(PDO::FETCH_FUNC, function($id, $nom, $prenom, $adresse, $login, $password, $statut, $specialite_id) {
+                return new ModelPersonne($id, $nom, $prenom, $adresse, $login, $password, $statut, $specialite_id);
+            });
             return $results;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());

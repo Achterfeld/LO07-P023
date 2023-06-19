@@ -12,7 +12,7 @@ require($root . '/app/view/fragment/fragmentDoctolibHeader.html');
 
         echo "<h3>Connexion</h3>";
 
-        form_begin('form-horizontal', 'get', 'router1.php');
+        form_begin('form-horizontal', 'post', 'router1.php');
         form_input_text('Login', 'login', '50', '', '', 'required');
         form_input_text('Password', 'password', '50', '', 'password', 'required');
         form_input_text('', 'action', '50', 'verifCoDoctolib', 'hidden');

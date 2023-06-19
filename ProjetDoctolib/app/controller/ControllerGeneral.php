@@ -57,17 +57,18 @@ class ControllerGeneral
     public static function verifCoDoctolib()
     {
 
-
-        $login = $_GET['login'];
-        $password = $_GET['password'];
+        $login = $_POST['login'];
+        $password = $_POST['password'];
         $result = ModelPersonne::getspeLogin($login);
-
         if (!empty($result)) {
             if (session_status() !== PHP_SESSION_ACTIVE) {
                 session_start();
             }
+            echo "ok";
+
             if (password_verify($password, $result->getPassword()))
             {
+
               /* The password is correct. */
               $_SESSION["login"] = $result;
               self::Accueil();
@@ -105,6 +106,7 @@ class ControllerGeneral
 // Les infos de la personne crées
     public static function creationpersonne()
     {
+        $speId = isset($_GET['specialite_id']) ? $_GET['specialite_id'] : 0;
         $results = ModelPersonne::insert(
             htmlspecialchars($_GET['nom']),
             htmlspecialchars($_GET['prenom']),
@@ -112,7 +114,7 @@ class ControllerGeneral
             htmlspecialchars($_GET['login']),
             htmlspecialchars(password_hash($_GET['password'], PASSWORD_DEFAULT)),
             htmlspecialchars($_GET['statut']),
-            htmlspecialchars($_GET['specialite_id'])
+            $speId
         );
         
         include 'config.php';

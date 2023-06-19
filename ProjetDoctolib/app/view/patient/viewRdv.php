@@ -18,19 +18,20 @@ require ($root . '/app/view/fragment/fragmentDoctolibHeader.html');
             <th scope = "col">Nom</th>
             <th scope = "col">Prénom</th>
             <th scope = "col">Date du rendez-vous</th>
-            <th scope = "col">Lancer le trajet</th>
+            <th scope = "col">Adresse</th>
         </tr>
         </thead>
         <tbody>
         <?php
         // $results = liste des Spé
         foreach ($results as $element) {
-            $adresse_cible = $element["adresse"];
-            printf("<tr><td>%s</td><td>%s</td><td>%s</td><td><a class='btn btn-outline-success' target='_blank' href='https://www.google.com/maps/dir/?api=1&origin=$adresse_patient&destination=$adresse_cible'>Lancer la navigation</a></td></tr>",
-                $element["nom"],
-                $element["prenom"],
-                $element["rdv_date"]
-            );
+
+            printf("<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+            $element["nom"],
+            $element["prenom"],
+            $element["rdv_date"],
+            $element["adresse"]
+        );
         }
         ?>
         </tbody>
