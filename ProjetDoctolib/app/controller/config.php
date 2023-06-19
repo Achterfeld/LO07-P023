@@ -14,7 +14,7 @@ $username = 'achterfm';
 $password = 'Sb0WHebn';
 
 if (!defined('LOCAL')) {
-    define('LOCAL', TRUE);
+    define('LOCAL', FALSE);
 }
 
 if (LOCAL) {
