@@ -2,7 +2,8 @@
 
 require_once 'Model.php';
 
-class ModelRendezvous {
+class ModelRendezvous 
+{
     private $id;
     private $patient_id;
     private $praticien_id;

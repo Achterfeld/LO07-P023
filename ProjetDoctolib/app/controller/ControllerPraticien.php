@@ -63,7 +63,7 @@ class ControllerPraticien
         require($vue);
     }
 
-    public static function getRdvListe()
+    public static function getListRdv()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();

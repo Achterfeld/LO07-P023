@@ -2,7 +2,8 @@
 
 require_once 'Model.php';
 
-class ModelSpecialite {
+class ModelSpecialite 
+{
 
     private static $_instance;
     private $id, $label;

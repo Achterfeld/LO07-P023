@@ -3,15 +3,16 @@
 require_once '../model/ModelPersonne.php';
 require_once '../model/ModelSpecialite.php';
 
-class ControllerDoctolib
+class ControllerGeneral
 {
-    public static function AccueilDocto()
+    public static function Accueil()
     {
+
         include 'config.php';
-        $vue = $root . '/app/view/viewAccueilDocto.php';
+        $vue = $root . '/app/view/viewAccueil.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : AccueilDocto : vue = $vue");
+            echo ("ControllerGeneral : Accueil : vue = $vue");
         }
         
         require($vue);
@@ -23,7 +24,7 @@ class ControllerDoctolib
         $vue = $root . '/app/view/innovation/viewInnovation.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : InnovationDocto : vue = $vue");
+            echo ("ControllerGeneral : InnovationDocto : vue = $vue");
         }
         
         require($vue);
@@ -35,7 +36,7 @@ class ControllerDoctolib
         $vue = $root . '/app/view/innovation/viewAmelioration.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : AmelioDocto : vue = $vue");
+            echo ("ControllerGeneral : AmelioDocto : vue = $vue");
         }
         
         require($vue);
@@ -47,7 +48,7 @@ class ControllerDoctolib
         $vue = $root . '/app/view/connexion/loginForm.php';
         
         if (DEBUG) {
-            echo ("ControllerDoctolib : ConnexionDocto : vue = $vue");
+            echo ("ControllerGeneral : ConnexionDocto : vue = $vue");
         }
         
         require($vue);
@@ -69,7 +70,7 @@ class ControllerDoctolib
             {
               /* The password is correct. */
               $_SESSION["login"] = $result;
-              self::AccueilDocto();
+              self::Accueil();
             }
 
         } else {
@@ -84,7 +85,7 @@ class ControllerDoctolib
             session_start();
         }
         $_SESSION["login"] = null;
-        self::AccueilDocto();
+        self::Accueil();
     }
 // Creation du statut 
     public static function Creerpersonne()

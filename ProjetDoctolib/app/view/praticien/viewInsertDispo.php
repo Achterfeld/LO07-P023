@@ -23,28 +23,4 @@ require ($root . '/app/view/fragment/fragmentDoctolibHeader.html');
     <p/>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script><script>
-
-    var unavailableDates = <?php echo json_encode($dateIndispo); ?>;
-
-
-    function unavailable(date) {
-        ymd = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
-        if (jQuery.inArray(ymd, unavailableDates) == -1) {
-            return [true, ""];
-        } else {
-            return [false, "", "Unavailable"];
-        }
-    }
-
-    jQuery(function() {
-        jQuery("#rdv_date").datepicker({
-            defaultDate: Date.now(),
-            dateFormat: 'yy-mm-dd',
-            beforeShowDay: unavailable
-        });
-
-    });
-</script>
 <?php include $root . '/app/view/fragment/fragmentDoctolibFooter.html'; ?>

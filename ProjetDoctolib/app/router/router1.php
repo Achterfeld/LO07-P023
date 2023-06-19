@@ -1,5 +1,6 @@
 <?php
-require('../controller/ControllerDoctolib.php');
+echo "debut routeur";
+require('../controller/ControllerGeneral.php');
 require('../controller/ControllerPatient.php');
 require('../controller/ControllerAdministrateur.php');
 require('../controller/ControllerPraticien.php');
@@ -53,12 +54,13 @@ switch ($action) {
     case "creationpersonne":
     case "InnovationDocto":
     case "AmelioDocto":
-        ControllerDoctolib::$action();
+        ControllerGeneral::$action();
         break;
 
     // Tâche par défaut
     default:
-        $action = "AccueilDocto";
-        ControllerDoctolib::$action();
+        $action = "Accueil";
+        echo "Controller debut";
+        ControllerGeneral::$action();
 }
 ?>

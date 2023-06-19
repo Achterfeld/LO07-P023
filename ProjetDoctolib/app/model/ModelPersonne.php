@@ -157,7 +157,7 @@ class ModelPersonne
                                         $PDOresult["login"],
                                         $PDOresult["password"],
                                         $PDOresult["statut"],
-                                        $PDOresult["specialite_id"],);
+                                        $PDOresult["specialite_id"]);
 
             $_SESSION["user"] = $result;
 
